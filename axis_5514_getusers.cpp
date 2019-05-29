@@ -106,16 +106,16 @@ int main(int argc, char* argv[])
     struct sockaddr_in serv_addr;  /* server address */
     struct hostent *host_ent;    
     int result = 0, send_len,url_len;
-	char url_buf[100];
+    char url_buf[100];
     char data_buf[HTTP_BUF_SIZE];
     char host[HTTP_HOST_LEN] = "127.0.0.1";
     unsigned short port = HTTP_DEF_PORT;
     unsigned long addr;
     char file_name[HTTP_HOST_LEN] = "index.html";
-	char file_nameforsave[HTTP_HOST_LEN] = "response.txt";//
+    char file_nameforsave[HTTP_HOST_LEN] = "response.txt";//
     FILE *file_web;
-	FILE *file_xml;
-	char *url="";
+    FILE *file_xml;
+    char *url="";
 	
     if (argc == 1)
     {
@@ -154,19 +154,19 @@ int main(int argc, char* argv[])
         printf("[Web] fail to connect, error = %d\n", WSAGetLastError());
         return -1; 
     }else
-		printf("connect successfully!!\n\n");
+	printf("connect successfully!!\n\n");
 
-	send_len = sprintf(data_buf, 
-			"POST /onvif/device_service HTTP/1.1\r\n"
-			"Content-type: text/xml\r\n"
-			"User-Agent: Python Post\r\n"
-			"SOAPAction:\"http://%s/onvif/device_service\"\r\n"
-			"Host: %s\r\n"
-			"Content-Length: %d\r\n"
-			"\r\n"
-			"%s",host,host,strlen(xml),xml);
-	data_buf[send_len]=0;
-	printf("len=%d,buf=%s\n",send_len,data_buf);
+    send_len = sprintf(data_buf, 
+		"POST /onvif/device_service HTTP/1.1\r\n"
+		"Content-type: text/xml\r\n"
+		"User-Agent: Python Post\r\n"
+		"SOAPAction:\"http://%s/onvif/device_service\"\r\n"
+		"Host: %s\r\n"
+		"Content-Length: %d\r\n"
+		"\r\n"
+		"%s",host,host,strlen(xml),xml);
+    data_buf[send_len]=0;
+    printf("len=%d,buf=%s\n",send_len,data_buf);
     result = send(http_sock, data_buf, send_len, 0);
 
     if (result == SOCKET_ERROR) /* fail */
@@ -188,7 +188,7 @@ int main(int argc, char* argv[])
             printf("%s", data_buf);
         }
     } while(result>0);	
-		printf("\n");
+    printf("\n");
 	
     return 0;
 }
