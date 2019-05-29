@@ -1,7 +1,7 @@
 # getusers Vulnerability of Axis 5514 Camera 
 
 
-This page show the details of the vulnerability found in AXIS 5514 Camera. AXIX-P5514 is not on sale now, but maybe some of them are still in use. 
+This page shows the details of the vulnerability found in AXIS 5514 Camera. AXIX-P5514 is not on sale now, but maybe some of them are still in use. 
 
 
 Description
